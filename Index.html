@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="StyxVault — software you own. Local-first tools for independent professionals and developers.">
+<meta name="theme-color" content="#f7f6f1">
+<title>StyxVault — Software you own.</title>
+<style>
+:root{
+  --bg:#f7f6f1;--surface:#fffefa;--text:#151713;--muted:#686b63;
+  --line:#dedfd7;--accent:#183f2b;--accent2:#2e6948;--soft:#e8eee9;
+  --shadow:0 20px 60px rgba(18,29,21,.08);--radius:22px;
+}
+body.dark{
+  --bg:#101410;--surface:#171c18;--text:#eef3ee;--muted:#a8b0a9;
+  --line:#2d352f;--accent:#5f9b76;--accent2:#80bb95;--soft:#202b24;
+  --shadow:0 20px 60px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.logo{font-weight:800;letter-spacing:-.04em;font-size:22px}
+.logo span{color:var(--accent2)}
+.navlinks{display:flex;gap:28px;color:var(--muted);font-size:14px}
+.navlinks a:hover{color:var(--text)}
+.navcta{background:var(--accent);color:white;padding:10px 16px;border-radius:10px;font-weight:650;font-size:14px}.navtools{display:flex;align-items:center;gap:10px}.theme-switch{display:inline-flex;align-items:center;gap:3px;padding:4px;border:1px solid var(--line);background:var(--surface);border-radius:999px}.theme-switch button{border:0;background:transparent;color:var(--muted);padding:7px 11px;border-radius:999px;font-size:12px;font-weight:750;cursor:pointer}.theme-switch button.active{background:var(--accent);color:#fff}.theme-switch button:hover{color:var(--text)}
+.hero{padding:112px 0 96px;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,254,250,.65);padding:7px 12px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent2)}
+h1{font-size:clamp(52px,8vw,92px);line-height:.98;letter-spacing:-.065em;max-width:850px;margin:28px auto 24px}
+.hero p{max-width:650px;margin:auto;color:var(--muted);font-size:18px}
+.actions{display:flex;justify-content:center;gap:12px;margin-top:34px;flex-wrap:wrap}
+.btn{padding:13px 20px;border-radius:12px;font-weight:700;font-size:14px;border:1px solid var(--line)}
+.btn.primary{background:var(--accent);color:white;border-color:var(--accent)}
+.btn.secondary{background:var(--surface)}
+.section{padding:86px 0}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
+.sectionhead h2{font-size:42px;line-height:1.05;letter-spacing:-.045em}
+.sectionhead p{color:var(--muted);max-width:450px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 8px 30px rgba(18,29,21,.035);display:flex;flex-direction:column;min-height:340px}
+.icon{width:44px;height:44px;border-radius:12px;background:var(--soft);color:var(--accent);display:grid;place-items:center;font-weight:850;margin-bottom:26px}
+.card h3{font-size:24px;letter-spacing:-.035em;margin-bottom:8px}
+.card p{color:var(--muted);font-size:15px}
+.cardbottom{margin-top:auto;padding-top:26px;display:flex;align-items:center;justify-content:space-between}
+.price{font-weight:800;font-size:17px}
+.price small{font-weight:500;color:var(--muted)}
+.arrow{color:var(--accent);font-weight:800}
+.philosophy{background:var(--accent);color:white;border-radius:30px;padding:70px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.philosophy h2{font-size:clamp(38px,5vw,60px);line-height:1;letter-spacing:-.055em}
+.philosophy p{color:#d6e2d9;font-size:17px}
+.points{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
+.point{border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:15px;color:#eef5ef;font-size:14px}
+.pricing{display:grid;grid-template-columns:1fr 1.15fr;gap:18px}
+.pricecard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:34px}
+.pricecard.featured{background:#edf3ee;border-color:#cbd8ce}body.dark .pricecard.featured{background:#1d2a21;border-color:#38503f}.billing{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 28px}.billing-toggle{display:inline-flex;padding:4px;border:1px solid var(--line);background:var(--surface);border-radius:999px}.billing-toggle button{border:0;background:transparent;color:var(--muted);padding:9px 16px;border-radius:999px;font-weight:750;cursor:pointer}.billing-toggle button.active{background:var(--accent);color:#fff}.savings{font-size:12px;font-weight:750;color:var(--accent2);white-space:nowrap}
+.pricecard h3{font-size:25px;letter-spacing:-.035em}
+.bigprice{font-size:48px;font-weight:850;letter-spacing:-.05em;margin:20px 0 4px}
+.bigprice small{font-size:15px;color:var(--muted);font-weight:500}
+.list{list-style:none;margin:25px 0}
+.list li{padding:8px 0;color:var(--muted);font-size:14px}
+.list li::before{content:"✓";color:var(--accent2);font-weight:800;margin-right:10px}
+footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted);font-size:13px}
+.footerrow{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:800px){
+ .navlinks{display:none}.navtools{gap:6px}.theme-switch button{padding:6px 8px}.navcta{padding:9px 11px}.hero{padding:80px 0 70px}
+ .sectionhead{display:block}.sectionhead p{margin-top:14px}
+ .grid,.pricing{grid-template-columns:1fr}
+ .philosophy{grid-template-columns:1fr;padding:38px 28px}
+ .points{grid-template-columns:1fr}
+ .footerrow{display:block}.footerrow p{margin-top:8px}
+}
+</style>
+</head>
+<body>
+<header class="container nav">
+  <a class="logo" href="#">Styx<span>Vault</span></a>
+  <nav class="navlinks">
+    <a href="#products">Products</a>
+    <a href="#philosophy">Why StyxVault</a>
+    <a href="#pricing">Pricing</a>
+  </nav>
+  <div class="navtools">
+    <div class="theme-switch" role="group" aria-label="Choose color mode">
+      <button type="button" id="lightMode" data-theme-choice="light" class="active" aria-pressed="true">☀ Bright</button>
+      <button type="button" id="darkMode" data-theme-choice="dark" aria-pressed="false">☾ Dark</button>
+    </div>
+    <a class="navcta" href="#products">Explore products</a>
+  </div>
+</header>
+
+<main>
+<section class="hero container">
+  <div class="eyebrow"><span class="dot"></span> Local-first software</div>
+  <h1>Software you own.</h1>
+  <p>StyxVault builds focused tools for people who want useful software without giving up control of their data, workflow, or environment.</p>
+  <div class="actions">
+    <a class="btn primary" href="#products">Explore products</a>
+    <a class="btn secondary" href="#philosophy">Why StyxVault?</a>
+  </div>
+</section>
+
+<section class="section container" id="products">
+  <div class="sectionhead">
+    <h2>Tools with a purpose.</h2>
+    <p>Small, focused products designed to become part of your everyday workflow.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="icon">D</div>
+      <h3>StyxDesk</h3>
+      <p>A local-first knowledge base and client workspace for freelancers and independent professionals.</p>
+      <div class="cardbottom"><span class="price" data-monthly="15" data-yearly="150">$15 <small>/ month</small></span><a class="arrow" href="#">Learn more →</a></div>
+    </article>
+    <article class="card">
+      <div class="icon">C</div>
+      <h3>StyxCode</h3>
+      <p>Keep the context behind your codebase: architecture notes, decisions, important files, and project knowledge.</p>
+      <div class="cardbottom"><span class="price" data-monthly="19" data-yearly="190">$19 <small>/ month</small></span><a class="arrow" href="#">Learn more →</a></div>
+    </article>
+    <article class="card">
+      <div class="icon">L</div>
+      <h3>StyxLedger</h3>
+      <p>A private financial command center for tracking income, expenses, and transactions locally.</p>
+      <div class="cardbottom"><span class="price" data-monthly="9" data-yearly="90">$9 <small>/ month</small></span><a class="arrow" href="#">Learn more →</a></div>
+    </article>
+  </div>
+</section>
+
+<section class="section container" id="philosophy">
+  <div class="philosophy">
+    <div>
+      <div class="eyebrow" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#e9f2eb">The StyxVault principle</div>
+      <h2 style="margin-top:22px">Constraints force creativity.</h2>
+    </div>
+    <div>
+      <p>We believe software can be powerful without becoming complicated. Our products favor local-first design, portability, privacy, and clear purpose.</p>
+      <div class="points">
+        <div class="point">Local-first by default</div>
+        <div class="point">Your data stays yours</div>
+        <div class="point">Focused workflows</div>
+        <div class="point">No unnecessary complexity</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section container" id="pricing">
+  <div class="sectionhead">
+    <h2>Simple pricing.</h2>
+    <p>Choose one product or bring the whole toolkit together.</p>
+  </div>
+  <div class="billing" aria-label="Billing period">
+    <div class="billing-toggle" role="group" aria-label="Choose billing period">
+      <button type="button" class="active" data-billing="monthly">Monthly</button>
+      <button type="button" data-billing="yearly">Yearly</button>
+    </div>
+    <span class="savings" id="savings">2 months free</span>
+  </div>
+  <div class="pricing">
+    <div class="pricecard">
+      <h3>Individual products</h3>
+      <ul class="list">
+        <li>StyxDesk — <span data-pricing="150" data-monthly="15">$15/month</span></li>
+        <li>StyxCode — <span data-pricing="190" data-monthly="19">$19/month</span></li>
+        <li>StyxLedger — <span data-pricing="90" data-monthly="9">$9/month</span></li>
+      </ul>
+      <a class="btn secondary" href="#products">Compare products</a>
+    </div>
+    <div class="pricecard featured">
+      <h3>StyxVault Suite</h3>
+      <div class="bigprice" data-suite-monthly="39" data-suite-yearly="390">$39 <small>/ month</small></div>
+      <p style="color:var(--muted)">All three products in one subscription.</p>
+      <ul class="list">
+        <li>StyxDesk</li>
+        <li>StyxCode</li>
+        <li>StyxLedger</li>
+        <li>One unified StyxVault experience</li>
+      </ul>
+      <a class="btn primary" href="#">Get the Suite</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footerrow">
+    <strong style="color:var(--text)">StyxVault</strong>
+    <p>© 2026 StyxVault. Software you own.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const body = document.body;
+  const lightMode = document.getElementById('lightMode');
+  const darkMode = document.getElementById('darkMode');
+  const savedTheme = localStorage.getItem('styxvault-theme');
+  if (savedTheme === 'dark') body.classList.add('dark');
+
+  function setTheme(theme){
+    body.classList.toggle('dark', theme === 'dark');
+    localStorage.setItem('styxvault-theme', theme);
+    lightMode.classList.toggle('active', theme === 'light');
+    darkMode.classList.toggle('active', theme === 'dark');
+    lightMode.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+    darkMode.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+  }
+
+  setTheme(savedTheme === 'dark' ? 'dark' : 'light');
+  lightMode.addEventListener('click', () => setTheme('light'));
+  darkMode.addEventListener('click', () => setTheme('dark'));
+
+  const billingButtons = document.querySelectorAll('[data-billing]');
+  const productPrices = document.querySelectorAll('.price[data-monthly]');
+  const listPrices = document.querySelectorAll('[data-pricing]');
+  const suite = document.querySelector('[data-suite-monthly]');
+  const savings = document.getElementById('savings');
+
+  function setBilling(period){
+    billingButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.billing === period));
+
+    productPrices.forEach(el => {
+      const value = period === 'yearly' ? el.dataset.yearly : el.dataset.monthly;
+      el.innerHTML = '$' + value + ' <small>/ ' + period.slice(0,-2) + (period === 'yearly' ? 'year' : 'month') + '</small>';
+    });
+
+    listPrices.forEach(el => {
+      const value = period === 'yearly' ? el.dataset.pricing : el.dataset.monthly;
+      el.textContent = '$' + value + '/' + (period === 'yearly' ? 'year' : 'month');
+    });
+
+    if (suite) {
+      const value = period === 'yearly' ? suite.dataset.suiteYearly : suite.dataset.suiteMonthly;
+      suite.innerHTML = '$' + value + ' <small>/ ' + (period === 'yearly' ? 'year' : 'month') + '</small>';
+    }
+    savings.textContent = period === 'yearly' ? '2 months free · annual savings' : '2 months free on yearly';
+  }
+
+  billingButtons.forEach(btn => btn.addEventListener('click', () => setBilling(btn.dataset.billing)));
+
+  // Default to the existing monthly presentation.
+  setBilling('monthly');
+})();
+</script>
+
+</body>
+</html>
